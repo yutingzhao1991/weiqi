@@ -1,0 +1,86 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: #DDD;
+}
+
+.content{
+	position: relative;
+	background: url(./bg.jpg);
+	width: 610px;
+	height: 623px;
+	margin: 0 auto;
+	margin-top: -311px;
+	top: 50%;
+}
+.board{
+	position: absolute;
+	width: 570px;
+	height: 589px;
+	margin-top: 18px;
+	margin-left: 20px;
+}
+.unit{
+	width: 30px;
+	height: 31px;
+	float: left;
+	margin: 0;
+	padding: 0;
+	border-radius: 15px;
+	box-sizing: border-box;
+}
+.whiteRound .unit:hover {
+	background: #DDD;
+	opacity: .6;
+}
+.blackRound .unit:hover {
+	background: #333;
+	opacity: .6;
+}
+.unit.white{
+	background: #FFF;
+}
+.unit.black{
+	background: #000;
+}
+.unit.white.active{
+	border: 3px dashed black;
+}
+.unit.black.active{
+	border: 3px dashed white;
+}
+.whiteRound .unit.black:hover {
+	background: #888;
+	opacity: .6;
+}
+.blackRound .unit.white:hover {
+	background: #AAA;
+	opacity: .6;
+}
+.codearea{
+	width: 300px;
+	height: 200px;
+}
+
+#AIarea{
+	position: absolute;
+	right: 10px;
+	top: 20px;
+	width: 300px;
+}
+.control{
+	position: absolute;
+	left: 10px;
+	top: 20px;
+	width: 300px;
+}
+#log{
+	padding: 2px;
+	width: 300px;
+	height: 500px;
+	border: 1px #000 solid;
+	background: #fff;
+	font-size: 12px;
+	line-height: 20px;
+	overflow: auto;
+}

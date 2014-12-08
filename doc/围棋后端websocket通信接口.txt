@@ -1,0 +1,100 @@
+浏览器端和服务器端通过JSON格式的字符串进行数据通信，通信的接口格式定义如下：
+
+服务器端需要向浏览器端发送的数据格式：
+1.socket创建成功之后服务器端发送成功通知,并返回一个用户id
+{
+	"eventType": "create",
+	"content": {
+		"id": "1234abc"
+	}
+}
+
+2.有用户接受邀请加入对战
+{
+	"eventType": "connect",
+	"content": {
+		"id": "1234trew", //对手id
+		"name": "测试", //对手名字
+		"color": "white|black" //对手旗子颜色（黑子先手）
+	}
+}
+
+3.用户下子（可以只给下子一方的对手发）
+{
+	"eventType": "action",
+	"content": {
+		"id": "443ldf", //下子用户id
+		"step": 124, //第多少个旗子，用于浏览器校验
+		"i": 3,  //落子点行号
+		"j": 4   //落子点列号
+	}
+}
+
+4.棋局结束 (后端可以暂时不做该逻辑)
+{
+	"eventType": "over",
+	"content": {
+		"type": "win|error|restart|draw"
+		"winer": "123abc" //胜利者id，平局或者重开等都没有
+	}
+}
+
+5.系统通知
+{
+	"eventType": "notice",
+	"content": {
+		"errno": 0|1|2,//错误码（暂不定义）
+		"info": "....."
+	}
+}
+
+6.聊天信息
+{
+	"eventType": "chat",
+	"content": {
+		"id": "asa",
+		"name": "dsdsd",
+		"info": "hello"
+	}
+}
+
+
+
+浏览器端需要向服务器端发送的数据格式：
+
+a.请求对战（比赛过程中通过该请求可以重新寻找对手）：
+{
+	"eventType": "request",
+	"content": {
+		"name": "测试"
+	}
+}
+
+b.下子：
+{
+	"evnetType": "action",
+	"content": {
+		"i": 0,
+		"j": 0
+	}
+}
+
+c.请求重玩：
+{
+	"evnetType": "restart",
+	"content": {}
+}
+
+7.发送聊天信息
+{
+	"eventType": "chat",
+	"content": {
+		"info": "hello"
+	}
+}
+
+
+
+example：一局棋所产生的数据流序列应该如下：
+
+socket连接->1->a->2->b->3->b->3->........->b->c->4........->socket断开->5

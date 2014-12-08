@@ -1,0 +1,59 @@
+<!doctype>
+<html>
+<head>
+	<title>围棋</title>
+	<script src="./javascript.js" type="text/javascript"></script>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="tangram.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <meta charset="utf8"/>
+</head>
+<body>
+	<div class="control">
+		<label for="method0"><input type="radio" value="0" id="method0" name="method"/>程序员模式</label>
+		<br />
+		<label for="method1"><input type="radio" value="1" id="method1" name="method"/>小白模式</label>
+		<label for="method2"><input type="radio" value="2" id="method2" name="method" checked="true"/>多人对战模式</label><br />昵称：<input id="playerName" value="路人甲"/><button id="requestEnemy">请求在线对战队友</button><button id="playerRename">设置昵称</button>
+		<br /><input id="chatInput" /><button id="chatBtn">广播消息</button>
+		<div id="log">欢迎您的访问！<br/></div>
+		<a href="http://baike.baidu.com/view/299139.htm">围棋规则</a>
+		<a href="http://www.yutingzhao.com">@余廷钊</a>
+		<a href="api.html" target="_blank">AI-API</a>
+	</div>
+	<div class="content">
+		<div class="board blackRound" id="board">
+		</div>
+	</div>
+	<div id="AIarea">
+		<div id="blackAI">
+			<div>黑棋AI：</div><textarea class="codearea" id="blackAIcode">
+			blackAI = function(data){for(var i=0; i<19; i++){for(var j=0; j<19; j++){if(data.map[i][j].flag == 0 && data.map[i][j].life!=0){
+			return {i:i, j:j};
+			}}}
+			return null;
+			}
+			</textarea>
+			<button id="loadBlackAI">加载黑棋AI</button>
+		</div>
+		<div id="whiteAI">
+			<div>白旗AI：</div><textarea class="codearea" id="whiteAIcode">
+			whiteAI = function(data){for(var i=0; i<19; i++){for(var j=0; j<19; j++){if(data.map[i][j].flag == 0 && data.map[i][j].life!=0){
+			return {i:i, j:j};
+			}}}
+			return null;
+			}
+			</textarea>
+			<button id="loadWhiteAI">加载白棋AI</button>
+		</div>
+		<button id="start">开始</button>
+		<button id="reset">重置</button>
+	</div>
+	<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=0&amp;uid=177576" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+</body>
+</html>

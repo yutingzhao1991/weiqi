@@ -1,0 +1,8 @@
+{
+   "name":"weiqi",
+   "main":"./app.js",
+   "dependencies": {
+    "express": "2.5.1",
+    "socket.io": "0.9.6"
+  }
+}

@@ -1,0 +1,53 @@
+<!doctype>
+<html>
+<head>
+	<title>围棋</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<pre>
+function (data)   //定义的AI函数
+    {
+        return {i:3,j:3}   //返回需要下子的坐标 i为行号 j为列号
+    }
+
+    data:
+    {
+        currentFlag: 1,//1-black. 2-white   //当前下子方
+        map:[Array(Unit)]     //棋盘状态的二维数组
+    }
+
+    Unit:  //棋盘单元信息
+    {
+        flag: 0,//0//1//2   //旗子类型  0为空 1为黑 2为白
+        i: i,   //行号 对应与二维数组
+        j: j, //列号 对应与二维数组
+        life: 0,1,2,3,4   //周围为空的单元数（气）
+    }
+
+
+
+example:
+
+blackAI = function(data){
+    for(var i=0; i<19; i++){
+        for(var j=0; j<19; j++){
+            if(data.map[i][j].flag == 0){
+                return {i:i, j:j};
+            }
+        }
+    }
+}
+
+whiteAI = function(data){
+    for(var i=0; i<19; i++){
+        for(var j=0; j<19; j++){
+            if(data.map[i][j].flag == 0){
+                return {i:i, j:j};
+            }
+        }
+    }
+}
+</pre>
+</body>
+</html>
