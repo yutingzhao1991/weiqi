@@ -15,6 +15,6 @@ app.configure('development', function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 // routes
-app.listen(config.port);
+app.listen(process.argv[2] || config.port);
 
 console.log("围棋 start at port:"+config.port);

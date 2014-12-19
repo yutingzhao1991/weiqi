@@ -1,8 +1,34 @@
 {
-   "name":"weiqi",
-   "main":"./app.js",
-   "dependencies": {
-    "express": "2.5.1",
-    "socket.io": "0.9.6"
-  }
+  "name": "aiweiqi",
+  "version": "1.0.0",
+  "description": "Online multi-player go(weiqi) play platform",
+  "main": "app.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "express": "^2.5.1",
+    "socket.io": "^0.9.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yutingzhao1991/aiweiqi.git"
+  },
+  "keywords": [
+    "go",
+    "weiqi",
+    "game",
+    "multi-player"
+  ],
+  "author": "Tingzhao Yu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yutingzhao1991/aiweiqi/issues"
+  },
+  "homepage": "https://github.com/yutingzhao1991/aiweiqi"
 }
